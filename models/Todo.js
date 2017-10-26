@@ -3,7 +3,7 @@ const db = require('../db/config');
 const Todo = {};
 
 Todo.findAll = () =>
-  db.query('SELECT * FROM todo')
+  db.query('SELECT * FROM todo ORDER BY id DESC')
 
 Todo.findById = id =>
   db.one('SELECT * FROM todo WHERE id = $1',[id])
@@ -13,14 +13,14 @@ Todo.create = todo => {
      INSERT INTO todo (
      todo,
      description,
-     category,
-     stat)
-      VALUES ($1,$2,$3,$4)
+     category
+)    
+     VALUES ($1,$2,$3)
      RETURNING *`,
-       [todo.todo, todo.description, todo.category, todo.stat]);
+       [todo.todo, todo.description, todo.category]);
 };
 
-Todo.update = todo => {
+Todo.update = (todo, id) => {
  return db.one(`
    UPDATE todo SET 
     todo = $1,

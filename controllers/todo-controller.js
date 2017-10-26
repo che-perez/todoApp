@@ -67,7 +67,7 @@ todoController.update = (req, res) => {
   description: req.body.description,
   category: req.body.category,
   stat: req.body.stat,
- }, req.body.id)
+ }, req.params.id)
  .then(todo => {
   res.redirect(`/todo/${todo.id}`)
   }).catch(err => {

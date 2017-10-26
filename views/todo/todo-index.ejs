@@ -1,0 +1,14 @@
+<% include ../partials/boilerplate %>
+
+<% todos.forEach(todo => { %> 
+
+<h1><%= todo.todo %></h1>
+<h2><%= todo.description %></h2>
+<h3><%= todo.category %></h3>
+<h4><%= todo.stat %></h4>
+
+<% include ../partials/end %>
+
+
+
+<% }) %>

@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-//const todoRoutes = require('./routes/todo-routes')
-//app.use('/todo', todoRoutes);
+const todoRoutes = require('./routes/todo-routes')
+app.use('/todo', todoRoutes);
 
 app.get('*', (req, res) => {
  res.status(404).send('404');

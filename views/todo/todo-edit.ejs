@@ -1,0 +1,21 @@
+<form method="POST" action='/todo/<%= todo.id%>?_method=PUT'>
+    <!-- <label>ID</label> -->
+    <input name="id" type="hidden" value="<%= todo.id%>"><br>
+    <label>TO-DO</label>
+    <input name="todo" value="<%= todo.todo%>">
+     <br>
+    <label>DESCRIPTION</label>
+    <br>
+    <input name="description" value="<%= todo.description%>">
+ <br>
+    <label>CATEGORY</label>
+ <br>
+    <input name="category" value="<%= todo.category%>">
+ <br>
+    <label>STATUS</label>
+ <br>
+    <input name="stat" value="<%= todo.stat%>"><br>
+    <br>
+    <button type="submit">Save Changes</button>
+
+  </form>
