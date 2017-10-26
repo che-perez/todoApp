@@ -36,9 +36,9 @@ todoController.create = (req, res) => {
   description: req.body.description,
   category: req.body.category,
   stat: req.body.stat,
- })
- .then(todo => {
-  res.redirect(`/todo/${todo.id}`)
+  }, req.user.id)
+  .then(todo => {
+    res.redirect(`/todo/${todo.id}`)
  }).catch(err => {
   console.log(err);
   res.status(500).json({
@@ -69,7 +69,7 @@ todoController.update = (req, res) => {
   stat: req.body.stat,
  }, req.params.id)
  .then(todo => {
-  res.redirect(`/todo/${todo.id}`)
+  res.redirect(`todo/${todo.id}`)
   }).catch(err => {
   console.log(err);
   res.status(500).json({

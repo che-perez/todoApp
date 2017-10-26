@@ -8,16 +8,17 @@ Todo.findAll = () =>
 Todo.findById = id =>
   db.one('SELECT * FROM todo WHERE id = $1',[id])
 
-Todo.create = todo => {
+Todo.create = (todo, userid) => {
  return db.one(`
      INSERT INTO todo (
      todo,
      description,
-     category
+     category,
+    user_id
 )    
-     VALUES ($1,$2,$3)
+     VALUES ($1,$2,$3,$4)
      RETURNING *`,
-       [todo.todo, todo.description, todo.category]);
+       [todo.todo, todo.description, todo.category, userid]);
 };
 
 Todo.update = (todo, id) => {
