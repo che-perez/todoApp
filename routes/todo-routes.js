@@ -4,11 +4,11 @@ const authHelpers = require('../services/auth/auth-helpers');
 
 const todoController = require('../controllers/todo-controller');
 
-todoRouter.get('/', todoController.index);
+todoRouter.get('/', authHelpers.loginRequired, todoController.index);
 todoRouter.post('/', authHelpers.loginRequired, todoController.create);
 
 todoRouter.get('/add', authHelpers.loginRequired, (req, res) => {
- res.render('todo/todo-add');
+ res.render('todo/todo-add', {auth: (req.user) ? true : false});
 });
 
 todoRouter.get('/:id',todoController.show);

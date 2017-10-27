@@ -1,4 +1,6 @@
-<form method="POST" action='/todo/<%= todo.id%>?_method=PUT'>
+<% include ../partials/boilerplate %>
+
+<form class="form" method="POST" action='/todo/<%= todo.id%>?_method=PUT'>
     <!-- <label>ID</label> -->
     <input name="id" type="hidden" value="<%= todo.id%>"><br>
     <label>TO-DO</label>
@@ -17,5 +19,6 @@
     <input name="stat" value="<%= todo.stat%>"><br>
     <br>
     <button type="submit">Save Changes</button>
-
   </form>
+
+<% include ../partials/end %>

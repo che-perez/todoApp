@@ -2,8 +2,11 @@ const db = require('../db/config');
 
 const Todo = {};
 
-Todo.findAll = () =>
-  db.query('SELECT * FROM todo ORDER BY id DESC')
+Todo.findAll = (id) =>
+  db.query(`
+    SELECT * FROM todo
+    WHERE user_id = $1
+  `, [id]);
 
 Todo.findById = id =>
   db.one('SELECT * FROM todo WHERE id = $1',[id])
@@ -15,8 +18,8 @@ Todo.create = (todo, userid) => {
      description,
      category,
     user_id
-)    
-     VALUES ($1,$2,$3,$4)
+) 
+VALUES ($1,$2,$3,$4)
      RETURNING *`,
        [todo.todo, todo.description, todo.category, userid]);
 };

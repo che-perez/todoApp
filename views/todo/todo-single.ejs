@@ -1,9 +1,14 @@
 <% include ../partials/boilerplate %>
-
-<h1><%= todo.todo %></h1>
-<h2><%= todo.description %></h2>
-<h3><%= todo.category %></h3>
-<h4><%= todo.stat %></h4>
+<div class="todos">
+ <div class="list">
+<h1><span id="title">Title:</span><%= todo.todo %></h1>
+<h2><span id="title">Description:</span><%= todo.description %></h2>
+<h3><span id="title">Category:</span><%= todo.category %></h3>
+<h4><span id="title">Stats:</span><%= todo.stat %></h4>
   <form class="delete" action="/todo/<%= todo.id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete">
+</form>
+  <a href="/todo/<%= todo.id%>/edit">Edit</a>
+ </div>
+</div>
 <% include ../partials/end %>

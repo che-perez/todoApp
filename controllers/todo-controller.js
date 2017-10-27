@@ -3,9 +3,11 @@ const Todo = require('../models/Todo');
 const todoController = {};
 
 todoController.index = (req, res) => {
- Todo.findAll()
+ Todo.findAll(req.user.id)
  .then(todos => {
   res.status(200).render('todo/todo-index', {
+    auth: (req.user) ? true : false,
+   user: req.user,
    todos: todos,
   })
  }).catch(err => {
@@ -20,7 +22,9 @@ todoController.show = (req, res) => {
  Todo.findById(req.params.id)
  .then(todo => {
   res.status(200).render('todo/todo-single', {
-   todo: todo
+   todo: todo,
+   auth: (req.user) ? true : false,
+   current_user: (req.user) ? req.user.id : 0,
   })
  }).catch(err => {
   console.log(err);
@@ -52,6 +56,7 @@ todoController.edit = (req, res) => {
  .then(todo => {
   res.status(200).render('todo/todo-edit', {
    todo: todo,
+   auth: (req.user) ? true : false,
   })
  }).catch(err => {
   console.log(err);
@@ -69,7 +74,7 @@ todoController.update = (req, res) => {
   stat: req.body.stat,
  }, req.params.id)
  .then(todo => {
-  res.redirect(`todo/${todo.id}`)
+  res.redirect(`/todo/${todo.id}`)
   }).catch(err => {
   console.log(err);
   res.status(500).json({

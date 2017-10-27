@@ -1,11 +1,16 @@
 <% include ../partials/boilerplate %>
 
-  <form method='POST' action='/auth/register'>
-    <input name='username' type='text' placeholder='username' required />
-    <input name='email' type='email' placeholder='email' required />
-    <input name='password' type='password' placeholder='password' required />
-    <input name='firstname' type='text' placeholder='first name' required />
-    <input name='lastname' type='text' placeholder='last name' required />
+  <form class="form" method='POST' action='/auth/register'>
+    <input name='username' type='text' placeholder='Username' required />
+   <br/>
+    <input name='email' type='email' placeholder='Email' required />
+   <br/>
+    <input name='password' type='password' placeholder='Password' required />
+   <br/>
+    <input name='firstname' type='text' placeholder='First name' required />
+   <br/>
+    <input name='lastname' type='text' placeholder='Last name' required />
+   <br/>
     <input type='submit' value='Register!' />
   </form>
 

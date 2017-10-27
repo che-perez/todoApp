@@ -37,7 +37,7 @@ app.listen(port, ()=> {
 });
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index',{auth: (req.user) ? true : false});
 });
 
 const todoRoutes = require('./routes/todo-routes')

@@ -1,0 +1,17 @@
+<header>
+<!--  <div class="logo">My To-Do</div>-->
+  <nav>
+    <ul>
+     <div class="logo">My To-Do</div>
+      <li><a href="/">Home</a></li>
+      <li><a href="/todo">All To-Do's</a></li>
+      <li><a href="/todo/add">Add New To-Do</a></li>
+      <% if (auth) { %>
+        <li><a href="/auth/logout">Logout</a></li>
+      <% } else { %>
+        <li><a href="/auth/register">Register</a></li>
+        <li><a href="/auth/login">Login</a></li>
+      <% } %>
+    </ul>
+  </nav>
+</header>

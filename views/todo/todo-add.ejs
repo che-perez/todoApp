@@ -1,17 +1,13 @@
 <% include ../partials/boilerplate %>
 
- <div class="form-page">
-   <div class="add">
-  <form action="/todo" method="POST">
+  <form class="form" action="/todo" method="POST">
     <input type="text" name="todo" placeholder="To-DO" />
     <input type="text" name="description" placeholder="Description" />
     <input type="text" name="category" placeholder="Category" />
     <input type="submit" value="Add it!" />
   </form>
-  </div>
 
   <a href="/todo">Back to all flashcards</a>
 
-</div>
 
 <% include ../partials/end %>
