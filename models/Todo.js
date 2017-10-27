@@ -5,7 +5,7 @@ const Todo = {};
 Todo.findAll = (id) =>
   db.query(`
     SELECT * FROM todo
-    WHERE user_id = $1
+    WHERE user_id = $1 ORDER BY id DESC
   `, [id]);
 
 Todo.findById = id =>
